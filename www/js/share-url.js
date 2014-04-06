@@ -1,7 +1,7 @@
 define(
     ['jquery'],
     function ($) {
-        var token = '6a21bf877de5080f6620ac7c91b5873d4309e695',
+        var token = '<token-here>',
             apiHost = 'https://api-ssl.bitly.com',
             shareUrl = {
             shorten: function (url, callback) {
