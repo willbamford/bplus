@@ -2,6 +2,8 @@
 
 > [BannerPlus](http://www.bplus.io) show messages on a scrolling LED display in your browser. Uses HTML5 Canvas and the Fullscreen API.
 
+![BannerPlus](www/images/banner-plus-200x200.png "BannerPlus")
+
 ## Demos
 
 ### Demo 1: [Hello World ☺](http://www.bplus.io?m=Hello+World+[smiley])
