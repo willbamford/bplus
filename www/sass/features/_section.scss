@@ -1,0 +1,61 @@
+.section {
+    @extend .cf;
+}
+
+@include mq-min(800px) {
+    .section {
+        width: 50%;
+        float: left;
+        border-left: 2px solid $colour--bg;
+    }
+
+    .section--first {
+        border-left: 0;
+    }
+}
+
+.section__header {
+    display: block;
+    color: #fff;
+    position: relative;
+    background: $colour--dark-grey;
+    font-size: 24px;
+    font-weight: normal;
+    height: 48px;
+    line-height: 48px;
+    margin: 0;
+    padding: 0 16px 0 48px;
+    cursor: pointer;
+    border-bottom: 2px solid $colour--bg;
+
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.icon-section-header {
+    display: block;
+    position: absolute;
+    left: 12px;
+    top: 10px;
+    font-size: 24px;
+}
+
+.section__content {
+    display: none;
+}
+
+.expander--is-closed {
+    .icon-section-header:before {
+        @extend %icon-chevron-right-before;
+    }
+}
+
+.expander--is-open {
+    .icon-section-header:before  {
+        @extend %icon-chevron-down-before;
+    }
+}

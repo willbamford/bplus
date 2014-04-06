@@ -1,0 +1,22 @@
+.stage__container {
+    display: table;
+    width: 100%;
+    background: #000;
+}
+
+.stage {
+    width: 100%;
+    height: auto;
+    display: table-cell;
+    vertical-align: middle;
+    background: #000;
+}
+
+.stage__canvas {
+    display: block;
+    overflow: hidden;
+    cursor: pointer;
+    width: 100%;
+    height: auto;
+    background: #000;
+}

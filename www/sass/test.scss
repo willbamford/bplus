@@ -1,0 +1,46 @@
+$is-fixed: false;
+
+@import 'units';
+@import 'helpers';
+
+@include mq-min-max(100, 200, landscape) {
+    .t-min-max-ori {
+        width: 100%;
+    }
+}
+
+@include mq-min-max(null, 200, landscape) {
+    .t-max-ori {
+        width: 100%;
+    }
+}
+
+@include mq-min-max(100, null, landscape) {
+    .t-min-ori {
+        width: 100%;
+    }
+}
+
+@include mq-min-max(null, null, landscape) {
+    .t-ori {
+        width: 100%;
+    }
+}
+
+@include mq-min-max(100, 200, null) {
+    .t-min-max {
+        width: 100%;
+    }
+}
+
+@include mq-min-max(null, 100, null) {
+    .t-max {
+        width: 100%;
+    }
+}
+
+@include mq-min-max(100, null, null) {
+    .t-min {
+        width: 100%;
+    }
+}

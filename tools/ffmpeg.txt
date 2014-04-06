@@ -1,0 +1,85 @@
+FFMPEG
+
+Default:
+
+ffmpeg -i test.mov -vcodec libvpx -acodec libvorbis test.webm
+
+Key frame every frame:
+
+ffmpeg -i test.mov -g 1 -keyint_min 1 -vcodec libvpx -acodec libvorbis test.webm
+
+
+ffmpeg -i raw/printworks.mov -g 1 -keyint_min 1 -vcodec libvpx -acodec libvorbis printworks-studio.webm
+
+
+HD720
+video qscale (q:v) 1
+30 fps
+5000k video bitrate
+ffmpeg -i raw/printworks.mov -q:v 1 -s hd720 -b:v 1000k -r 30 -vcodec libvpx -acodec libvorbis test.webm
+
+
+
+ffmpeg -i raw/printworks.mov -codec:v libvpx -quality good -cpu-used 0 -b:v 600k -qmin 10 -qmax 42 -maxrate 500k -bufsize 1000k -threads 2 -vf scale=-1:480 -codec:a libvorbis -b:a 128k -pass 2 -f webm two-pass-test.webm
+
+
+ffmpeg -i raw/printworks.mov -vcodec libvpx -quality good -cpu-used 0 -b:v 600k -qmin 10 -qmax 42 -maxrate 500k -vf scale=-1:480 -acodec libvorbis -b:a 128k -pass 2 -f webm two-pass-test.webm
+
+
+VIDEO -> STILL IMAGES
+=====================
+
+ffmpeg -i printworks.webm -r 30 -f image2 temp/%05d.png
+
+
+STILL IMAGES -> VIDEO
+=====================
+
+ffmpeg -i '%05d.png' -framerate 30 -s 853x480 -r 30 -vcodec libvpx -b:v 1500k out3.webm
+
+ffmpeg -f image2 -framerate 30 -i '%05d.png' -s 853x480 -r 30 -vcodec libvpx -b:v 1500k out4.webm
+
+
+ffmpeg -f image2 -r 1/5 -i img%03d.png -c:v libx264 -r 30 out.webm
+
+
+
+
+
+ffmpeg -i raw/printworks.mov -vcodec libvpx -quality good -b:v 600k -vf scale=-1:480 -acodec libvorbis -b:a 128k -pass 2 -f webm two-pass-test.webm
+
+
+
+Two-pass disabled:
+ffmpeg -i raw/printworks.mov -vcodec libvpx -quality good -b:v 1500k -vf scale=-1:480 -acodec libvorbis -b:a 128k -f webm test.webm
+
+
+
+ffmpeg -i raw/printworks.mov -vcodec libvpx -r 30 -b:v 1500k -vf scale=-1:480 -acodec libvorbis -b:a 128k -f webm printworks_853x480.webm
+
+PROBE (VIDEO INFORMATION):
+ffprobe ./test.webm
+
+
+
+
+
+
+
+ -ss 00:07:00.000 -t 00:05:00 
+ 
+ffmpeg -i 2.mov -ss 00:00:07.000 -t 00:00:05 -q:v 1 -s hd720 -b:v 10000k -r 30 -vcodec libvpx -vf hflip,vflip -acodec libvorbis 2.webm
+
+
+ffmpeg -i 2.mov -ss 00:00:07.000 -t 00:00:03.8 -q:v 1 -s hd720 -b:v 10000k -r 30 -vcodec libvpx -vf hflip,vflip,unsharp -acodec libvorbis 2.webm
+
+ -f mp4 -vcodec mpeg4
+
+ffmpeg -i 2.mov -ss 00:00:07.000 -t 00:00:03.8 -q:v 1 -s hd480 -b:v 10000k -r 30 -f mp4 -vcodec mpeg4 -vf unsharp motorway_853x480.mp4
+
+iPad
+====
+
+ffmpeg -i 2.mov -acodec aac -ac 2 -strict experimental -ab 160k -s hd480 -vcodec libx264 -preset slow -profile:v baseline -level 30 -maxrate 10000000 -bufsize 10000000 -b 1200k -f mp4 -threads 0 2.ipad.mp4
+
+

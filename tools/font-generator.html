@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Font Generator</title>
+    <meta name="viewport" content="width=device-width">
+    
+    <style>
+      body {
+        font-family: monospace;
+      }
+      
+      #output {
+        width: 640px;
+        font-size: 10px;
+      }
+
+      canvas {
+        background: red;
+      }
+    </style>
+  </head>
+  <body>
+    
+    <canvas id="canvas" width="600" height="20"></canvas>
+    
+    <div id="output">
+    </div>
+    
+    <ul id="log"></ul>
+    
+    <script>window.exports = {}</script>
+    <script src="jquery-1.10.2.min.js"></script>
+    <script>
+    
+      function padToThree(number) {
+        if (number <= 999) {
+          number = ("00" + number).slice(-3);
+        }
+        return number;
+      }
+
+      var ctx = document.getElementById('canvas').getContext('2d'),
+        img = new Image();
+        
+      img.src = 'fonts/12-symbols.png';
+      
+      img.onload = function () {
+        ctx.drawImage(img, 0, 0);
+        
+        $.getJSON('fonts/12-symbols.json', function (fontData) {
+          console.log(fontData);
+          
+          /*
+            var data, out = '';
+          
+            $('#output').append(JSON.stringify(data));
+          
+            for (var y = 0; y < img.height; y++) {
+              for (var x = 0; x < img.width; x++) {
+                data = ctx.getImageData(x, y, 1, 1).data;
+                out += data[0] ? '@' : '.';
+              }
+              out += '<br/>';
+            }
+          
+            $('#output').append(out);
+          */
+          
+          var font = {},
+            chr = '',
+            chw = 0,
+            tx = 1,
+            iw = img.width,
+            ih = img.height,
+            data,
+            lastData = null,
+            run = 0,
+            runTotal = 0,
+            out = '',
+            htmlOut = '',
+            outs = [],
+            intensity = 0,
+            lastIntensity = -1;
+          
+          for (var i = 0; i < fontData.length; i++) {
+            
+            chr = fontData[i][0];
+            chw = fontData[i][1];
+            
+            out = '[';
+            
+            for (var y = 0; y < ih; y++) {
+              for (var x = tx; x < tx + chw; x++) {
+                data = ctx.getImageData(x, y, 1, 1).data;
+
+                // htmlOut += padToThree(data[0]) + ' ';
+                intensity = Math.floor(data[0] / 32);
+                htmlOut += intensity /*(intensity ? intensity : ' ')*/ + ' ';
+
+                if (lastIntensity !== -1 && intensity != lastIntensity) {
+                  out += '[' + lastIntensity + ',' + run + '],';
+                  run = 0;
+                  lastIntensity = intensity;
+                }
+              
+                run++;
+                lastIntensity = intensity;
+              }
+              htmlOut += "\n";
+            }
+            
+            if (run > 0) {
+              out += '[' + intensity + ',' + run + ']';
+              run = 0;
+            }
+            
+            out += ']';
+            
+            var character = {
+              width: chw,
+              pixels: JSON.parse(out)
+            };
+            
+            font[chr] = character;
+            
+            tx += chw + 1;
+          }
+
+          font["height"] = 12;
+
+          var rjs = 'define(function () { return ' + JSON.stringify(font) + ' });';
+          console.log(rjs);
+          
+          document.write('<pre>' + htmlOut + '</pre>');
+          document.write('<pre>' + rjs + '</pre>')
+        });
+      };
+      
+    </script>
+  </body>
+</html>

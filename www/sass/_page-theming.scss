@@ -1,0 +1,45 @@
+
+@mixin theme($name, $color) {
+    .theme-#{$name} {
+        .message__icon,
+        .message__input,
+        .list__item:hover,
+        .stage__overlay-text,
+        .stage__overlay-icon,
+        .header__text-plus,
+        .message__symbols-button:hover,
+        .sections__header-button:hover,
+        .section__header:hover,
+        .expander--is-open .section__header,
+        .expander--is-open .symbols__header  {
+            color: $color;
+        }
+    }
+}
+
+.message__icon,
+.message__input,
+.list__item:hover,
+.stage__overlay-text,
+.stage__overlay-icon,
+.header__text-plus,
+.message__symbols-button:hover,
+.sections__header-button:hover,
+.section__header:hover,
+.expander--is-open .section__header,
+.expander--is-open .symbols__header {
+    transition : color 500ms ease-out; 
+    -webkit-transition : color 500ms ease-out; 
+       -moz-transition : color 500ms ease-out;
+         -o-transition : color 500ms ease-out;
+}
+
+@include theme('white', #fff);
+@include theme('red', #f00);
+@include theme('orange', #f70);
+@include theme('yellow', #fd3);
+@include theme('green', #0f3);
+@include theme('cyan', #0ff);
+@include theme('blue', #37f);
+@include theme('purple', #95f);
+@include theme('pink', #f0f);

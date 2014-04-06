@@ -1,0 +1,98 @@
+@import "compass/css3/box-sizing";
+
+* {
+    @include box-sizing(border-box);
+}
+
+html {
+    background: $colour--bg;
+    color: #ccc;
+    font-family: 'Lato', 'HelveticaNeue-UltraLight', 'Helvetica Neue UltraLight', 'Helvetica Neue', sans-serif;
+}
+
+body {
+    // overflow-x: hidden;
+}
+
+a {
+    outline: none;
+    text-decoration: none;
+}
+
+h1, h2, h3,
+p {
+    margin: 0 0 16px 0;
+}
+
+h4, h5 {
+    margin: 0 0 8px 0;
+}
+
+.main {
+    visibility: visible;
+    margin: 0 auto;
+    max-width: $fixed-width;
+    overflow-x: hidden;
+}
+
+.loading {
+    display: none;
+    text-align: center;
+    width: 200px;
+    margin: 80px auto;
+}
+
+.app--is-loading {
+
+    // background-color: #333;
+
+    .main {
+        visibility: hidden;
+    }
+
+    .loading {  
+        display: block;
+    }
+}
+
+.no-js-banner {
+    margin: 64px 32px;
+    text-align: center;
+    color: #e36;
+}
+
+.vh {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+/* Hide only visually, but have it available for screenreaders: h5bp.com/v */
+.vh { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
+
+/* Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard: h5bp.com/p */
+.vh.focusable:active, .vh.focusable:focus { clip: auto; height: auto; margin: 0; overflow: visible; position: static; width: auto; }
+
+input {
+    -webkit-appearance: none;
+    border-radius: 0;
+}
+
+/* http://stackoverflow.com/questions/2610497/change-an-inputs-html5-placeholder-color-with-css */
+::-webkit-input-placeholder { /* WebKit browsers */
+    color: $colour--placeholder;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: $colour--placeholder;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: $colour--placeholder;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color: $colour--placeholder;
+}

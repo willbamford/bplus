@@ -1,0 +1,30 @@
+BEFORE
+convert printworks_800x600.jpg -draw 'fill none stroke red polygon 359,216 552,184 566,336 362,364' printworks_before.jpg
+
+AFTER 1 (rectangular)
+convert printworks_800x600.jpg -draw 'fill none stroke red polygon 359,216 576,216 576,369 359,369' printworks_after1.jpg
+
+convert printworks_800x600.jpg -matte -virtual-pixel transparent \
+         -distort Perspective \
+              '359,216 359,216    552,184 576,216    566,336 576,369    362,364 359,369' \
+          prinworks_pers_after1.jpg
+
+AFTER 2 (affine)
+convert printworks_800x600.jpg -draw 'fill none stroke red polygon 359,216 552,184 555,332 362,364' printworks_after2.jpg
+
+convert printworks_800x600.jpg -matte -virtual-pixel transparent \
+         -distort Perspective \
+              '359,216 359,216    552,184 552,184    566,336 555,332    362,364 362,364' \
+          printworks_pers_after2.jpg
+          
+
+TV
+==          
+          
+convert tv_800x600.jpg -draw 'fill none stroke red polygon 523,252 680,260 680,373 523,360' tv_after2.jpg
+
+
+convert tv_800x600.jpg -matte -virtual-pixel transparent \
+         -distort Perspective \
+              '521,265 523,252    680,260 680,260    680,373 680,373    523,360 523,360' \
+          tv_pers_after2.jpg

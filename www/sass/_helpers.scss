@@ -1,0 +1,85 @@
+
+@mixin mq-min-max($min-width: null, $max-width: null, $orientation: null, $allow-fixed: true) {
+    @if $is-fixed {
+        @if $allow-fixed {
+            @if $min-width != null and $max-width != null {
+                @if ($fixed-width >= $min-width and $fixed-width <= $max-width) {
+                    @content;
+                }
+            }
+            @else if $min-width != null {
+                @if ($fixed-width >= $min-width) {
+                    @content;
+                }
+            }
+            @else if $max-width != null {
+                @if ($fixed-width <= $max-width) {
+                    @content;
+                }
+            }
+        }
+    }
+    @else {
+
+        // Min-width, max-width and orientation
+        @if $min-width != null and $max-width != null and $orientation != null {
+            @media screen and (min-width: pem($min-width)) and (max-width: pem($max-width)) and (orientation: $orientation) {
+                @content;
+            }
+        }
+        // Max-width and orientation
+        @else if $min-width == null and $max-width != null and $orientation != null {
+            @media screen and (max-width: pem($max-width)) and (orientation: $orientation) {
+                @content;
+            }
+        }
+        // Min-width and orientation
+        @else if $min-width != null and $max-width == null and $orientation != null {
+            @media screen and (min-width: pem($min-width)) and (orientation: $orientation) {
+                @content;
+            }
+        }
+        // Orientation
+        @else if $min-width == null and $max-width == null and $orientation != null {
+            @media screen and (orientation: $orientation) {
+                @content;
+            }
+        }
+        // Min-width, max-width
+        @else if $min-width != null and $max-width != null and $orientation == null {
+            @media screen and (min-width: pem($min-width)) and (max-width: pem($max-width)) {
+                @content;
+            }
+        }
+        // Max-width
+        @else if $min-width == null and $max-width != null and $orientation == null {
+            @media screen and (max-width: pem($max-width)) {
+                @content;
+            }
+        }
+        // Min-width
+        @else if $min-width != null and $max-width == null and $orientation == null {
+            @media screen and (min-width: pem($min-width)) {
+                @content;
+            }
+        }
+    }
+}
+
+@mixin mq-min($min-width, $orientation: null, $allow-fixed: true) {
+    @include mq-min-max($min-width, null, $orientation, $allow-fixed) {
+        @content;
+    }
+}
+
+@mixin mq-max($max-width, $orientation: null, $allow-fixed: true) {
+    @include mq-min-max(null, $max-width, $orientation, $allow-fixed) {
+        @content;
+    }
+}
+
+@mixin mq-orientation($orientation: null, $allow-fixed: true) {
+    @include mq-min-max(null, null, $orientation, $allow-fixed) {
+        @content;
+    }
+}

@@ -1,1 +1,7 @@
+.DS_Store
 aws-auth.json
+archive
+graphics
+node_modules
+scenes
+videos

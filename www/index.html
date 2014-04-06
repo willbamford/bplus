@@ -1,0 +1,151 @@
+<!doctype html>
+<html class="app--is-loading" lang="en">
+    <head>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="apple-itunes-app" content="app-id=401518130">
+
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="http://bplus.io" />
+        <meta property="og:image" content="http://bplus.io/images/banner-plus-200x200.png" />
+        <meta property="og:site_name" content="Banner+: Scrolling LED messages" />
+        <meta property="og:title" content="Banner+: Scrolling LED messages" />
+        <meta property="og:description" content="Free scrolling LED message service on mobile and the web."/>
+
+        <!-- Favicons -->
+        <link rel="shortcut icon" sizes="16x16 32x32 48x48 64x64" href="/images/favicon.ico">
+        <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
+        <!-- For Opera Speed Dial: -->
+        <link rel="icon" type="image/png" sizes="195x195" href="/images/favicon-195.png">
+        <!-- For iPad with high-resolution Retina display running iOS ≥ 7: -->
+        <link rel="apple-touch-icon" sizes="152x152" href="/images/favicon-152.png">
+        <!-- For iPad with high-resolution Retina display running iOS ≤ 6: -->
+        <link rel="apple-touch-icon" sizes="144x144" href="/images/favicon-144.png">
+        <!-- For iPhone with high-resolution Retina display running iOS ≥ 7: -->
+        <link rel="apple-touch-icon" sizes="120x120" href="/images/favicon-120.png">
+        <!-- For iPhone with high-resolution Retina display running iOS ≤ 6: -->
+        <link rel="apple-touch-icon" sizes="114x114" href="/images/favicon-114.png">
+        <!-- For Google TV devices: -->
+        <link rel="icon" type="image/png" sizes="96x96" href="/images/favicon-96.png">
+        <!-- For iPad Mini: -->
+        <link rel="apple-touch-icon" sizes="76x76" href="/images/favicon-76.png">
+        <!-- For first- and second-generation iPad: -->
+        <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon-72.png">
+        <!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+        <link rel="apple-touch-icon" href="/images/favicon-57.png">
+        <!-- Windows 8 Tiles -->
+        <meta name="msapplication-TileColor" content="#FFFFFF">
+        <meta name="msapplication-TileImage" content="/images/favicon-144.png">
+
+        <title>Banner+: Scrolling LED messages</title>
+
+        <link href='http://fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
+
+        <!--[if lt IE 9]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+            <link rel="stylesheet" href="css/fixed.css">
+            <script>
+                var cutsTheMustard = false;
+            </script>
+        <![endif]-->
+
+        <!--[if gt IE 8]><!-->
+            <link rel="stylesheet" href="css/responsive.css">
+            <script>
+                var cutsTheMustard = true,
+                require = {
+                    paths: {
+                        jquery: 'vendor/jquery-2.0.3.min'
+                    },
+                    shim: {
+                        'vendor/screenfull': {
+                            exports: 'screenfull'
+                        } 
+                    },
+                    app: 'app-built'
+                };
+            </script>
+            <script data-main="js/app-built" src="js/vendor/require.js"></script>
+        <!--<![endif]-->
+
+    </head>
+    <body>
+
+        <noscript>
+            <h2 class="no-js-banner">Sorry, Banner+ requires JavaScript support</h2>
+        </noscript>
+        <script>
+            if (cutsTheMustard) {
+                document.write('<div class="loading"><object type="image/svg+xml" data="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiB3aWR0aD0iMzYiIGhlaWdodD0iMzYiIHZpZXdCb3g9Ii0xOCAtMTggMzYgMzYiPgo8ZGVmcz4KPGNpcmNsZSBpZD0icmVmIiBjeD0iMTAiIGN5PSIxMCIgcj0iNCIvPgo8L2RlZnM+CiAgIDxnIGlkPSJhIj4KPHVzZSB4bGluazpocmVmPSIjcmVmIiBzdHlsZT0iZmlsbDojYWRhZGFkO2ZpbGwtb3BhY2l0eTowLjU7c3Ryb2tlLXdpZHRoOjAiLz4KPHVzZSB4bGluazpocmVmPSIjcmVmIiB0cmFuc2Zvcm09InJvdGF0ZSg0NSkiIHN0eWxlPSJmaWxsOiNhZGFkYWQ7ZmlsbC1vcGFjaXR5OjAuNTsiLz4KPHVzZSB4bGluazpocmVmPSIjcmVmIiB0cmFuc2Zvcm09InJvdGF0ZSg5MCkiIHN0eWxlPSJmaWxsOiNjMWMxYzE7ZmlsbC1vcGFjaXR5OjAuNTY4NjI3NDU7Ii8+Cjx1c2UgeGxpbms6aHJlZj0iI3JlZiIgdHJhbnNmb3JtPSJyb3RhdGUoMTM1KSIgc3R5bGU9ImZpbGw6I2Q3ZDdkNztmaWxsLW9wYWNpdHk6MC42Nzg0MzE2MTsiLz4KPHVzZSB4bGluazpocmVmPSIjcmVmIiB0cmFuc2Zvcm09InJvdGF0ZSgxODApIiBzdHlsZT0iZmlsbDojZTllOWU5O2ZpbGwtb3BhY2l0eTowLjc4NDMxMzczOyIvPgo8dXNlIHhsaW5rOmhyZWY9IiNyZWYiIHRyYW5zZm9ybT0icm90YXRlKDIyNSkiIHN0eWxlPSJmaWxsOiNmNGY0ZjQ7ZmlsbC1vcGFjaXR5OjAuODkwMTk2MDg7Ii8+Cjx1c2UgeGxpbms6aHJlZj0iI3JlZiIgdHJhbnNmb3JtPSJyb3RhdGUoMjcwKSIgc3R5bGU9ImZpbGw6I2ZmZmZmZjtmaWxsLW9wYWNpdHk6MTsiLz4KPHVzZSB4bGluazpocmVmPSIjcmVmIiB0cmFuc2Zvcm09InJvdGF0ZSgzMTUpIiBzdHlsZT0iZmlsbDojYWRhZGFkO2ZpbGwtb3BhY2l0eTowLjU7Ii8+CjxhbmltYXRlVHJhbnNmb3JtIGF0dHJpYnV0ZU5hbWU9InRyYW5zZm9ybSIgYXR0cmlidXRlVHlwZT0iWE1MIiB0eXBlPSJyb3RhdGUiIGJlZ2luPSIwcyIgZHVyPSIwLjhzIiByZXBlYXRDb3VudD0iaW5kZWZpbml0ZSIgY2FsY01vZGU9ImRpc2NyZXRlIiB2YWx1ZXM9IjAgIDsgIDQ1OyAgOTA7IDEzNTsgMTgwOyAyMjU7IDI3MDsgMzE1OyAzNjAiIGtleVRpbWVzPSIwLjA7IDAuMTsgMC4yOyAwLjM7IDAuNDsgMC41OyAwLjY7IDAuNzsgMC44Ii8+CjwvZz4KCjwvc3ZnPg=="></object></div>');
+            } else {
+                document.write('<h2 class="no-js-banner"><p>Sorry, your browser doesn\'t support Banner+</p><p>(try upgrading to IE 9+, or use Chrome, Firefox or Safari)</p></h2>');
+            }
+        </script>
+
+        <!-- Main -->
+        <div id="main" class="main cf" role="main">
+
+            <div class="sections sections--is-closed">
+
+                <header class="sections__header">
+                    <h1 class="sections__header-text">Banner<span class="header__text-plus">+</span></h1>
+                    <span title="Fullscreen" class="sections__header-button sections__header-button--fullscreen icon-expand"></span>
+                    <span title="Open / close menu" class="sections__header-button sections__header-button--toggle icon-header"></span>
+                </header>
+
+                <div class="stage__container cf">
+                    <div class="stage">
+                        <!-- Canvas here -->
+                    </div>
+                </div>
+
+                <div class="sections__content">
+
+                    <section class="message">
+                        <div class="message__text">
+                            <span class="message__icon icon-pencil"></span>
+                            <input class="message__input" type="text" placeholder="Your message..." />
+                        </div>
+                        <div class="message__symbols expander--is-closed">
+                            <h2 class="symbols__header">
+                                <span title="Symbols" class="symbols__button icon-smiley2"></span>
+                            </h2>
+                        </div>
+                    </section>
+
+                    <section class="section section--theme expander--is-closed section--first">
+                        <h2 class="section__header"><span class="icon-section-header"></span> Theme</h2>
+                    </section>
+
+                    <section class="section section--speed expander--is-closed">
+                        <h2 class="section__header"><span class="icon-section-header"></span> Speed</h2>
+                    </section>
+
+                    <!--
+                    <section class="section section--share expander--is-closed section--last">
+                        <h2 class="section__header"><span class="icon-section-header"></span> Share this message</h2>
+                    </section>
+                    -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <!--
+        <footer class="footer">
+            <p class="footer__text">&copy; 2013 Banner+</p>
+        </footer>
+        -->
+
+        <!-- Google analytics -->
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+            ga('create', 'UA-46279030-1', 'bplus.io');
+            ga('send', 'pageview');
+        </script>
+    </body>
+</html>

@@ -1,0 +1,42 @@
+@media screen and (min-width: 6.25em) and (max-width: 12.5em) and (orientation: landscape) {
+  /* line 7, ../sass/test.scss */
+  .t-min-max-ori {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 12.5em) and (orientation: landscape) {
+  /* line 13, ../sass/test.scss */
+  .t-max-ori {
+    width: 100%;
+  }
+}
+@media screen and (min-width: 6.25em) and (orientation: landscape) {
+  /* line 19, ../sass/test.scss */
+  .t-min-ori {
+    width: 100%;
+  }
+}
+@media screen and (orientation: landscape) {
+  /* line 25, ../sass/test.scss */
+  .t-ori {
+    width: 100%;
+  }
+}
+@media screen and (min-width: 6.25em) and (max-width: 12.5em) {
+  /* line 31, ../sass/test.scss */
+  .t-min-max {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 6.25em) {
+  /* line 37, ../sass/test.scss */
+  .t-max {
+    width: 100%;
+  }
+}
+@media screen and (min-width: 6.25em) {
+  /* line 43, ../sass/test.scss */
+  .t-min {
+    width: 100%;
+  }
+}

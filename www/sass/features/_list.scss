@@ -1,0 +1,39 @@
+.list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    @extend .cf;
+}
+
+.list__item {
+    display: block;
+    height: 40px;
+    line-height: 40px;
+    font-size: 20px;
+    border-bottom: 2px solid $colour--bg;
+    cursor: pointer;
+    position: relative;
+    width: 100%;
+    float: left;
+    overflow: hidden;
+    background: $colour--dark-grey;
+    text-align: center;
+    padding: 0 8px;
+}
+
+.list__item:hover {
+    color: #f6c;
+}
+
+.list__item-icon {
+    position: absolute;
+    font-size: 24px;
+    right: 16px;
+    top: 12px;
+    display: none;
+}
+
+.list__item--is-selected {
+    background: #000;
+    color: #666;
+}

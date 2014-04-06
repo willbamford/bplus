@@ -1,0 +1,64 @@
+
+.sections__header {
+    position: relative;
+    background: $colour--dark-grey;
+    height: 48px;
+    border-bottom: 2px solid $colour--bg;
+}
+
+.sections__header-text {
+    font-size: 24px;
+    margin: 0;
+    height: 48px;
+    line-height: 48px;
+    padding: 0 16px;
+}
+
+.sections__header-button {
+    display: block;
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    line-height: 44px;
+    border-left: 2px solid $colour--bg;
+    cursor: pointer;
+    top: 0;
+}
+
+.sections__header-button--toggle {
+    right: 0;
+}
+
+.sections__header-button--fullscreen {
+    right: 50px;
+}
+
+.sections__content {
+    display: none;
+}
+
+.sections__header-button--fullscreen {
+    font-size: 24px;
+    padding: 1px 12px;
+}
+
+.sections--is-closed {
+
+    .sections__header-button--toggle {
+        font-size: 26px;
+        padding: 1px 10px;
+    }
+    .sections__header-button--toggle:before {
+        @extend %icon-list-before;
+    }
+}
+
+.sections--is-open {
+    .sections__header-button--toggle {
+        font-size: 20px;
+        padding: 0 13px;
+    }
+    .sections__header-button--toggle:before  {
+        @extend %icon-cross-before;
+    }
+}

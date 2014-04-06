@@ -1,0 +1,45 @@
+
+.section--speed {
+
+    @include mq-min(320px) {
+        .list__item {
+            border-left: 1px solid $colour--bg;
+            border-right: 1px solid $colour--bg;
+            width: 1 / 2 * 100%;
+        }
+    }
+
+    @include mq-min-max(320px, 479px) {
+        .list__item:nth-child(2n) {
+            border-right: none;
+        }
+        .list__item:nth-child(2n + 1) {
+            border-left: none;
+        }
+    }
+
+    @include mq-min-max(480px, 799px) {
+        .list__item {
+            width: 1 / 3 * 100%;
+        }
+        .list__item:nth-child(3n) {
+            border-right: none;
+        }
+        .list__item:nth-child(3n + 1) {
+            border-left: none;
+        }
+    }
+
+    @include mq-min(800px) {
+        .list__item {
+            width: 1 / 3 * 100%;
+        }
+
+        .list__item:nth-child(3n) {
+            border-right: none;
+        }
+        .list__item:nth-child(3n + 1) {
+            border-left: none;
+        }
+    }
+}
