@@ -1,4 +1,4 @@
-# BannerPlus
+# [BannerPlus](http://www.bplus.io)
 
 > [BannerPlus](http://www.bplus.io) show messages on a scrolling LED display in your browser. Uses HTML5 Canvas and the Fullscreen API.
 
@@ -17,7 +17,7 @@ http://www.bplus.io?m=Hello+World+[smiley]
 Demonstrates setting a theme (Neon Blue) and scrolling speed (Fast).
 
 ```
-http://bplus.io/?m=Do+androids+dream+of+electric+sheep%3F&t=neon-blue&s=fast
+http://www.bplus.io/?m=Do+androids+dream+of+electric+sheep%3F&t=neon-blue&s=fast
 ```
 
 ## Configuration
